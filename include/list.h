@@ -62,12 +62,54 @@ struct list* create_list(long size);
  */
 struct list* create_list(struct list_node* n);
 
+/**
+ * Insert the given @p val into the respective list
+ *
+ * @param list pointer to the list being inserted into
+ * @param val @p struct data_t* value being inserted
+ *
+ * @return @p true if insertion was successful, @p false otherwise
+ */
 bool list_insert(struct list* list, struct data_t* val);
+
+// TODO: Finish documenting functions
 bool list_insert(struct list* list, struct list_node* node);
 bool list_append(struct list* list, struct data_t* val);
 bool list_append(struct list* list, struct list_node* node);
 
+struct data_t* list_find(struct list* list, struct data_t val);
+struct data_t* list_find(struct list* list, struct list_node* node);
+bool list_contains(struct list* list, struct data_t val);
+bool list_contains(struct list* list, struct list_node* node);
 
+/**
+ * Deletes the first occurence of the value @p val by performing a search for
+ * the given value and then deleting the first node containing @p val
+ *
+ * @param list pointer to the respective list
+ * @param val @p struct data_t value to be deleted
+ *
+ * @return @p true if the delete was successful, @p false otherwise
+ */
+bool list_delete(struct list* list, struct data_t* val);
 
+/**
+ * Deletes the node in the list that matches the passed @p node
+ *
+ * @param list pointer to the respective list struct
+ * @param node node to be deleted
+ *
+ * @return @p true if the deletion was successful, @p false otherwise
+ */
+bool list_delete(struct list* list, struct list_node* node);
+
+/**
+ * Creates a string representation of the list for printing
+ *
+ * @param list pointer to the list generating the string representation
+ *
+ * @return @p char* representation of the list
+ */
+char* list_str(struct list* list);
 
 #endif // __LIST_H
