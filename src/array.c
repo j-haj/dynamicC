@@ -24,16 +24,24 @@ void array_append(struct array_t* arr, struct stored_val_t elem) {
 		// We have enough room to append an element
 	} else {
 		// Need to allocate more memory for array
-		struct stored_val_t* new_e =
-			(struct stored_val_t*)malloc(sizeof(struct stored_val_t*)
-						     * 2 * capacity);
-		memcpy(new_e, arr->elements, capacity);
-		arr->elements = new_e;
+		increase_array_capacity(arr);
 		arr->elements[size] = elem;
 	}
 }
 
 struct stored_val* array_get(struct array_t* arr, size_t index) {
 	assert(index < arr->size);
-	return arr->elements[index];
+	return &arr->elements[index];
+}
+
+void increase_array_capacity(struct array_t* arr) {
+	// Get new capacity
+	size_t new_cap = arr->capacity * 2;
+
+	// Allocate new space
+	struct stored_val_t* new_elements = (struct stored_val_t*)malloc(
+					sizeof(struct stored_val_t) * new_cap);
+	memcpy(new_elements, arr->elements,
+	       arr->size * sizeof(struct stored_val_t));
+	arr->elements = new_elements;
 }

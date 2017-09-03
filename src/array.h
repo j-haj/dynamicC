@@ -116,6 +116,6 @@ struct array_t* make_array(size_t capacity, enum storable_t type);
  *
  * @return pointer to array with double the capacity of the original array
  */
-struct array_t* increase_array_capacity(struct array_t* arr);
+void increase_array_capacity(struct array_t* arr);
 
 #endif  // ARRAY_H_
