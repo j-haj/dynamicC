@@ -1,6 +1,8 @@
 #ifndef ARRAY_H_
 #define ARRAY_H_
 
+#include <stdlib.h>
+
 enum storable_t {
   undef_t,
   int_t,
@@ -26,7 +28,7 @@ struct stored_val_t {
     char* s;
     char b;
   } value;
-}
+};
 
 /** Array type
  *
