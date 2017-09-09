@@ -5,12 +5,6 @@ bool list_node_cmp(struct list_node* n1, struct list_node* n2) {
 	return true;
 }
 
-struct list_node* create_node() {
-	struct list_node* node =
-	    (struct list_node*)malloc(sizeof(struct list_node));
-	return node;
-}
-
 struct list_node* create_node(struct data_t val) {
 	struct list_node* node =
 	    (struct list_node*)malloc(sizeof(struct list_node));
@@ -18,12 +12,12 @@ struct list_node* create_node(struct data_t val) {
 	return node;
 }
 
-struct list* create_list() {
+struct list* create_empty_list() {
 	struct list* l = (struct list*)malloc(sizeof(struct list));
 	return l;
 }
 
-struct list* create_list(long n) {
+struct list* create_allocated_list(long n) {
 	struct list* l = (struct list*)malloc(sizeof(struct list));
 	for (long i = 0; i < n; ++i) {
 		struct list_node* tmp_node = create_node();
@@ -32,7 +26,7 @@ struct list* create_list(long n) {
 	return l;
 }
 
-struct list* create_list(struct list_node* n) {
+struct list* create_list_from_node(struct list_node* n) {
 	struct list* l = (struct list*)malloc(sizeof(struct list));
 	l->head = n;
 	l->tail = n;

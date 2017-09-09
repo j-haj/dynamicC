@@ -7,20 +7,20 @@
 #include "data.h"
 
 /**
- * Struct that corresponds to the nodes of the linked list. Uses @p data_t as
+ * Struct that corresponds to the nodes of the linked list_t*. Uses @p data_t as
  * the value to allow the user to avoid having to cast via void *
  */
-struct list_node {
+struct list_t*_node_t {
   struct data_t value;
-  struct list_node* next;
+  struct list_t*_node_t* next;
 };
 
 /**
- * Struct for @p list - linked lists
+ * Struct for @p list_t* - linked list_t*s
  */
-struct list {
-  struct list_node* head;
-  struct list_node* tail;
+struct list_t* {
+  struct list_t*_node_t* head;
+  struct list_t*_node_t* tail;
   long size;
 };
 
@@ -33,157 +33,157 @@ struct list {
  *
  * @return @p true if nodes are equal, @p false otherwise
  */
-bool list_node_cmp(struct list_node* n1, struct list_node* n2);
+bool list_t*_node_t_cmp(struct list_t*_node_t* n1, struct list_t*_node_t* n2);
 
 /**
- * Creates an empty @p struct list_node*
+ * Creates an empty @p struct list_t*_node_t*
  *
- * @return @p struct list_node* with no data
+ * @return @p struct list_t*_node_t* with no data
  */
-struct list_node* create_node();
+struct list_t*_node_t* create_node();
 
 /**
- * Deletes a @p list_node struct
+ * Deletes a @p list_t*_node_t struct
  *
- * @param node @p list_node to delete
+ * @param node @p list_t*_node_t to delete
  */
-void delete_node(struct list_node* node);
+void delete_node(struct list_t*_node_t* node);
 
 /**
- * Creates a @p struct list_node* with contents @p val
+ * Creates a @p struct list_t*_node_t* with contents @p val
  *
  * @param val a @p struct data_t value that represents the node's data
  *
- * @return @p struct list_node* with the given data
+ * @return @p struct list_t*_node_t* with the given data
  */
-struct list_node* create_node(struct data_t val);
+struct list_t*_node_t* create_node(struct data_t val);
 
 /**
- * Create an empty linked list
+ * Create an empty linked list_t*
  *
- * @return @p struct list* pointer to list
+ * @return @p struct list_t** pointer to list_t*
  */
-struct list* create_list();
+struct list_t** create_list_t*();
 
 /**
- * Create an empty linked list of size @p size
+ * Create an empty linked list_t* of size @p size
  *
- * @param size size of the list
+ * @param size size of the list_t*
  *
- * @return @p struct list* pointer to list
+ * @return @p struct list_t** pointer to list_t*
  */
-struct list* create_list(long size);
+struct list_t** create_list_t*(long size);
 
 /**
- * Create a linked list pointing to @p struct list_node n
+ * Create a linked list_t* pointing to @p struct list_t*_node_t n
  *
- * @param n @p struct_list_node* head of the newly created linked list
+ * @param n @p struct_list_t*_node_t* head of the newly created linked list_t*
  *
- * @return @p struct list* pointer to list
+ * @return @p struct list_t** pointer to list_t*
  */
-struct list* create_list(struct list_node* n);
+struct list_t** create_list_t*(struct list_t*_node_t* n);
 
 /**
- * Insert the given @p val into the respective list
+ * Insert the given @p val into the respective list_t*
  *
- * @param list pointer to the list being inserted into
+ * @param list_t* pointer to the list_t* being inserted into
  * @param val @p struct data_t* value being inserted
  *
  * @return @p true if insertion was successful, @p false otherwise
  */
-bool list_insert(struct list* list, struct data_t* val);
+bool list_t*_insert(struct list_t** list_t*, struct data_t* val);
 
 /**
- * Insert the given @p node into  the beginning of the respective list.
+ * Insert the given @p node into  the beginning of the respective list_t*.
  *
- * @param list pointer to the list being inserted into
+ * @param list_t* pointer to the list_t* being inserted into
  * @param node node being inserted
  *
  * @return @p true if insertion was successful, @p false otherwise
  */
-bool list_insert(struct list* list, struct list_node* node);
+bool list_t*_insert(struct list_t** list_t*, struct list_t*_node_t* node);
 
 /**
- * Append @p val to the end of the list
+ * Append @p val to the end of the list_t*
  *
- * @param list pointer to the list being appended to
- * @param val value sed to create a node that is appended to the list
+ * @param list_t* pointer to the list_t* being appended to
+ * @param val value sed to create a node that is appended to the list_t*
  *
  * @return @p true if successful, @p false otherwise
  */
-bool list_append(struct list* list, struct data_t val);
+bool list_t*_append(struct list_t** list_t*, struct data_t val);
 
 /**
- * Append @p node to the end of the list
+ * Append @p node to the end of the list_t*
  *
- * @param list pointer to the list being appended to
+ * @param list_t* pointer to the list_t* being appended to
  * @param node node being appended
  *
  * @return @p true if successful, @p false otherwise
  */
-bool list_append(struct list* list, struct list_node* node);
+bool list_t*_append(struct list_t** list_t*, struct list_t*_node_t* node);
 
 /**
- * Searches the list for a node with the given value, returning a 
+ * Searches the list_t* for a node with the given value, returning a 
  * pointer to the first node containing @p val
  *
- * @param list list being searched
+ * @param list_t* list_t* being searched
  * @param val value being searched for
  *
  * @return pointer to the first node encountered whose data matches @p val
  */
-struct data_t* list_find(struct list* list, struct data_t val);
+struct data_t* list_t*_find(struct list_t** list_t*, struct data_t val);
 
 /**
- * Determines whether the given list contains @p val. Search complexity is O(n),
- * since the list is searched via traversal
+ * Determines whether the given list_t* contains @p val. Search complexity is O(n),
+ * since the list_t* is searched via traversal
  *
- * @param list the list bein searched
+ * @param list_t* the list_t* bein searched
  * @param val the value being searched for
  *
  * @return @p true if the value was found, @p false otherwise
  */
-bool list_contains(struct list* list, struct data_t val);
+bool list_t*_contains(struct list_t** list_t*, struct data_t val);
 
 /**
- * Determines whether the given list contains @p node. The search complexity is
- * O(n), since the list is searched via traversal.
+ * Determines whether the given list_t* contains @p node. The search complexity is
+ * O(n), since the list_t* is searched via traversal.
  *
- * @param list the list being searched
+ * @param list_t* the list_t* being searched
  * @param node the node being searched for
  *
  * @return @p true if the node is found, @p false otherwise
  */
-bool list_contains(struct list* list, struct list_node* node);
+bool list_t*_contains(struct list_t** list_t*, struct list_t*_node_t* node);
 
 /**
  * Deletes the first occurence of the value @p val by performing a search for
  * the given value and then deleting the first node containing @p val
  *
- * @param list pointer to the respective list
+ * @param list_t* pointer to the respective list_t*
  * @param val @p struct data_t value to be deleted
  *
  * @return @p true if the delete was successful, @p false otherwise
  */
-bool list_delete(struct list* list, struct data_t val);
+bool list_t*_delete(struct list_t** list_t*, struct data_t val);
 
 /**
- * Deletes the node in the list that matches the passed @p node
+ * Deletes the node in the list_t* that matches the passed @p node
  *
- * @param list pointer to the respective list struct
+ * @param list_t* pointer to the respective list_t* struct
  * @param node node to be deleted
  *
  * @return @p true if the deletion was successful, @p false otherwise
  */
-bool list_delete(struct list* list, struct list_node* node);
+bool list_t*_delete(struct list_t** list_t*, struct list_t*_node_t* node);
 
 /**
- * Creates a string representation of the list for printing
+ * Creates a string representation of the list_t* for printing
  *
- * @param list pointer to the list generating the string representation
+ * @param list_t* pointer to the list_t* generating the string representation
  *
- * @return @p char* representation of the list
+ * @return @p char* representation of the list_t*
  */
-char* list_str(struct list* list);
+char* list_t*_str(struct list_t** list_t*);
 
 #endif // __LIST_H

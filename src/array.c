@@ -3,6 +3,7 @@
 
 #include <assert.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 size_t array_size(struct array_t* arr) { return arr->size; }
@@ -29,7 +30,7 @@ void array_append(struct array_t* arr, struct stored_val_t elem) {
 	}
 }
 
-struct stored_val* array_get(struct array_t* arr, size_t index) {
+struct stored_val_t* array_get(struct array_t* arr, size_t index) {
 	assert(index < arr->size);
 	return &arr->elements[index];
 }
