@@ -4,30 +4,30 @@
 #include <stdlib.h>
 
 enum storable_t {
-  undef_t,
-  int_t,
-  long_t,
-  uint_t,
-  ulong_t,
-  double_t,
-  float_t,
-  string_t,
-  byte_t
+	undef_t,
+	int_t,
+	long_t,
+	uint_t,
+	ulong_t,
+	double_t,
+	float_t,
+	string_t,
+	byte_t
 };
 
 struct stored_val_t {
-  enum storable_t t;
+	enum storable_t t;
 
-  union {
-    int i;
-    long l;
-    unsigned int ui;
-    unsigned long ul;
-    double d;
-    float f;
-    char* s;
-    char b;
-  } value;
+	union {
+		int i;
+		long l;
+		unsigned int ui;
+		unsigned long ul;
+		double d;
+		float f;
+		char *s;
+		char b;
+	} value;
 };
 
 /** Array type
@@ -46,9 +46,9 @@ struct stored_val_t {
  * along with a copy, doubling the size of the array.
  */
 struct array_t {
-  size_t size;      // Default size is 1
-  size_t capacity;  // Default capacity is 1
-  struct stored_val_t* elements;
+	size_t size;     // Default size is 1
+	size_t capacity; // Default capacity is 1
+	struct stored_val_t *elements;
 };
 
 /**
@@ -61,7 +61,7 @@ struct array_t {
  *
  * @return size of the array
  */
-size_t array_size(struct array_t* arr);
+size_t array_size(struct array_t *arr);
 
 /**
  * Gets the capacity of the array.
@@ -73,7 +73,7 @@ size_t array_size(struct array_t* arr);
  *
  * @return the capacity of the array
  */
-size_t array_capacity(struct array_t* arr);
+size_t array_capacity(struct array_t *arr);
 
 /**
  * Appends an element to the given array
@@ -81,7 +81,7 @@ size_t array_capacity(struct array_t* arr);
  * @param arr the array to be appended to
  * @param elem the element being appended to the array
  */
-void array_append(struct array_t* arr, struct stored_val_t elem);
+void array_append(struct array_t *arr, struct stored_val_t elem);
 
 /**
  * Sets the value of the array for the given index
@@ -90,7 +90,7 @@ void array_append(struct array_t* arr, struct stored_val_t elem);
  * @param index the index of the element to be updated
  * @param elem the element being used to update the array
  */
-void array_set(struct array_t* arr, long index, struct stored_val_t* elem);
+void array_set(struct array_t *arr, long index, struct stored_val_t *elem);
 
 /**
  * Retrieves the value stored at `index`
@@ -100,7 +100,7 @@ void array_set(struct array_t* arr, long index, struct stored_val_t* elem);
  *
  * @return The `struct stored_val_t*` being stored at `index`
  */
-struct stored_val_t* array_get(struct array_t* arr, size_t index);
+struct stored_val_t *array_get(struct array_t *arr, size_t index);
 
 /**
  * Create an array on the heap with specified capacity. The array will be
@@ -108,7 +108,7 @@ struct stored_val_t* array_get(struct array_t* arr, size_t index);
  *
  * @param capacity Desired capacity of the array
  */
-struct array_t* make_array(size_t capacity, enum storable_t type);
+struct array_t *make_array(size_t capacity, enum storable_t type);
 
 /**
  * Doubles the internal capacity of the array and copies the elements over to
@@ -118,6 +118,6 @@ struct array_t* make_array(size_t capacity, enum storable_t type);
  *
  * @return pointer to array with double the capacity of the original array
  */
-void increase_array_capacity(struct array_t* arr);
+void increase_array_capacity(struct array_t *arr);
 
-#endif  // ARRAY_H_
+#endif // ARRAY_H_
